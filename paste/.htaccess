@@ -3,3 +3,5 @@ RewriteRule ^/$ index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME}\.txt -f 
 RewriteRule ^(.*)$ $1.txt
+
+# This code allow you accessing a .txt file without .txt, if you have /paste/example.txt , you can access with this code to: /paste/example
