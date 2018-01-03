@@ -1,3 +1,4 @@
+// Styling Error if you access directly inserting URL
 <style>
 .no-paste {
 	font-size: 34px;
@@ -25,17 +26,17 @@ span {
 	animation: machine 4.5s infinite alternate steps(17);
 </style>
 <?php
-if ( isset ($_POST['input']) ) {
+if ( isset ($_POST['input']) ) { // checking if you entered data in paste
 $data = $_POST['input'];
-$length = 7;
-$randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
-$my_file = "paste/$randomString.txt";
+$length = 7; // the length of random string choosen, example: y2Vf9aH
+$randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); // the random string and selecting length
+$my_file = "paste/$randomString.txt"; // saving paste in .txt
 $handle = fopen($my_file, 'w') or die('Cannot open file: '.$my_file);
 fwrite($handle, $data);
 $ffinal = "paste/$randomString";
-header( 'Location: /'.$ffinal.'' ) ;
+header( 'Location: /'.$ffinal.'' ) ; // this direct you to the paste without .txt, because a .htaccess remove the extension
 }
-else{
+else{ // else show cool css error text
 	echo "<center><div class=\"no-paste\">ERROR</div></center>";
 	echo "<br />";
 	echo "<center><div class=\"no-paste1\"><span>&#160;</span>Paste Text Empty</div></center>";
