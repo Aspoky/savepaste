@@ -1,0 +1,21 @@
+© SavePaste 2018 Copyright
+
+
+<---- A HasteBin Open Source ---->
+
+
+
+
+Example file: http://savepaste.rf.gf/paste/example
+
+
+All files are uploaded in .txt extension and with random 7 digits (Numbers and Letters)
+
+This 7 digit can be more (8, 9, 10....)
+
+Or less but the combination will be complete in lesss time.
+
+
+
+
+<----- Source will be uploaded ----->
