@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteRule ^/$ index.php [L]
+RewriteRule ^/about$ about.txt [L]
+ErrorDocument 404 /404.html
+ErrorDocument 505 /505.html
+ErrorDocument 500 /500.html
+ErrorDocument 403 /403.html
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.txt -f 
+RewriteRule ^(.*)$ $1.txt [QSA]
+
+SetEnv SERVER_ADMIN mail@example.com
+
+AddDefaultCharset UTF-8
+
+<Files .htaccess>
+	Order allow,deny
+	Deny from all
+</Files>
