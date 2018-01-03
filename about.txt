@@ -18,4 +18,6 @@ Or less but the combination will be complete in lesss time.
 
 
 
-<----- Source will be uploaded ----->
+<----- Source Code ----->
+
+Check GitHub: https://github.com/Aspoky/SavePaste/
