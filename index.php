@@ -3,7 +3,6 @@
 <title>SavePaste</title>
 <link rel="stylesheet" type="text/css" href="/includes/dark.css" />
 <link rel="stylesheet" type="text/css" href="/includes/app.css" />
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/includes/hlight.js"></script>
 <script type="text/javascript">
@@ -28,6 +27,24 @@
 				handlePop({ target: window });
 			});
 		</script>
+
+ <script>
+ if( ! ("autofocus" in document.createElement( "input" ) ) )
+ {
+ document.getElementById( "input" ).focus();
+ }
+ </script>
+
+<script>
+function validateForm() {
+var x = document.forms["myForm"]["input"].value;
+if (x == "") {
+    document.getElementById( "input" ).focus();
+    return false;
+}
+}
+</script>
+
 <style>
 .save-b {
   display: inline-block;
@@ -99,8 +116,8 @@ $(window).bind("pageshow", function() {
 </head>
 <body>
 <div id="linenos">></div>
-<form method="post" action="upload.php" autocomplete="off">
-<div id="txtar1"><textarea rows="34" cols="165" type="text" name="input" pattern=".{10,}" required></textarea></div>
+<form name="myForm" method="post" action="upload.php"  onsubmit="return validateForm()" autocomplete="off">
+<div id="txtar1"><textarea id="input" rows="34" cols="165" type="text" name="input" pattern=".{10,}" autofocus></textarea></div>
 <br>
 <br>
 <div id="save1"><input type="submit" class="save-b" value="Save" /></div>
