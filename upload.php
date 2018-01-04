@@ -1,4 +1,9 @@
-// Styling Error if you access directly inserting URL
+<html>
+<head>
+<title>Upload Error</title>
+</head>
+</html>
+<!--- Styling Error if you access directly inserting URL --->
 <style>
 .no-paste {
 	font-size: 34px;
