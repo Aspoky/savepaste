@@ -4,7 +4,9 @@
 <link rel="stylesheet" type="text/css" href="/includes/dark.css" />
 <link rel="stylesheet" type="text/css" href="/includes/app.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://rawgit.com/jeresig/jquery.hotkeys/master/jquery.hotkeys.js"></script>
 <script type="text/javascript" src="/includes/hlight.js"></script>
+<script type="text/javascript" src="/includes/shortcut.js"></script>
 <script type="text/javascript">
 			var app = null;
 			// Handle pops
@@ -34,8 +36,38 @@
  document.getElementById( "input" ).focus();
  }
  </script>
+ 
+<script>
+window.addEventListener("keydown", e => {
+  var keyCode = 'which' in e ? e.which : e.keyCode;
+  if(e.ctrlKey && keyCode === 83) {
+  e.preventDefault();
+  smitbtn.click();
+  }
+});
+</script>
 
 <script>
+window.addEventListener("keydown", e => {
+  var keyCode = 'which' in e ? e.which : e.keyCode;
+  if(e.ctrlKey && keyCode === 78) {
+  e.preventDefault();
+  document.getElementById( "input" ).value = "";
+  }
+});
+</script>
+
+<script>
+window.addEventListener("keydown", e => {
+  var keyCode = 'which' in e ? e.which : e.keyCode;
+  if(e.ctrlKey && keyCode === 84) {
+  e.preventDefault();
+  document.getElementById( "linkk" ).click();
+  }
+});
+</script>
+
+<script> 
 function validateForm() {
 var x = document.forms["myForm"]["input"].value;
 if (x == "") {
@@ -106,6 +138,9 @@ input:required {
     top: -180px
     border: 7px solid #FFF;
 }
+#inv {
+	visibility: hidden;
+}
 </style>
 
 <script type="text/javascript">
@@ -113,6 +148,7 @@ $(window).bind("pageshow", function() {
     $("#txtar1")[0].reset();
 });
 </script>
+
 </head>
 <body>
 <div id="linenos">></div>
@@ -120,7 +156,22 @@ $(window).bind("pageshow", function() {
 <div id="txtar1"><textarea id="input" rows="34" cols="165" type="text" name="input" pattern=".{10,}" autofocus></textarea></div>
 <br>
 <br>
-<div id="save1"><input type="submit" class="save-b" value="Save" /></div>
+<div id="save1"><input type="submit" id="smitbtn" class="save-b" value="Save" /></div>
+<div id="inv1"><a href="https://twitter.com/intent/tweet?text=SavePaste+is+a+open+source+copy+of+Hastebin+with+easier+code%0A%0ASavePaste+web+page:+http://savepaste.rf.gd/%0A%0AFollow+SavePaste+on+Twitter:+@SavePastee&amp;url="
+   onclick="window.open(this.href,'targetWindow',
+                                   'toolbar=no,
+                                    location=no,
+                                    status=no,
+                                    menubar=no,
+                                    scrollbars=yes,
+                                    resizable=yes,
+                                    width=100px,
+                                    height=100px');
+ return false;" id="linkk" target="_blank"></a></div>
 </form>
 </body>
 </html>
+
+<?php
+include('/includes/hlight.js');
+?>
